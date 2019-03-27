@@ -1,0 +1,170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CB",
+    "description": "CB Documentation API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/providers": {
+      "x-swagger-router-controller": "user_ctrl",
+      "post": {
+        "tags": [
+          "Providers"
+        ],
+        "summary": "Create new Provider in system",
+        "description": "Create new Provider in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Providers"
+        ],
+        "summary": "Get all Providers in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Providers"
+            }
+          }
+        }
+      }
+    },
+
+    "/providers/{id}": {
+      "put": {
+        "tags": [
+          "Providers"
+        ],
+        "summary": "Update Provider in system",
+        "description": "Update provider in system",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "update provider",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "provider",
+            "in": "body",
+            "description": "update provider",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "update provided is success",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Providers"
+        ],
+        "summary": "Get by id Provider in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Providers"
+        ],
+        "summary": "delete by id Provider in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Provider"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Provider": {
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "email": { "type": "string" },
+        "specialty": {
+          "_id": { "type": "string", "ref": "Specialities" },
+          "name": { "type": "string" },
+          "createdBy": { "type": "number" },
+          "createdAt": { "type": "date" },
+          "updatedBy": { "type": "number" },
+          "updatedAt": { "type": "date" }
+        },
+        "projectedStartDate": { "type": "date" },
+        "employerId": { "type": "number" },
+        "providerType": { "type": "string" },
+        "staffStatus": { "type": "string" },
+        "assignedTo": { "type": "number" },
+        "status": { "type": "string" },
+        "createdBy": { "type": "number" },
+        "createdAt": { "type": "date" },
+        "updatedBy": { "type": "number" },
+        "updatedAt": { "type": "date" }
+      }
+    },
+
+    "Providers": {
+      "type": "array",
+      "$ref": "#/definitions/Provider"
+    }
+  }
+}

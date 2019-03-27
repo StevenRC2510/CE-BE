@@ -1,0 +1,36 @@
+{
+  "name": "crud-cb",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "8.11.0"
+  },
+  "scripts": {
+    "start": "node server/config/dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/config/dev -e js,hbs,html,css"
+  },
+  "keywords": [],
+  "author": "Steven Ruiz",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.3",
+    "moment": "^2.24.0",
+    "mongoose": "^5.2.14",
+    "mongoose-unique-validator": "^2.0.1",
+    "swagger-express-middleware": "^2.0.2",
+    "swagger-ui-express": "^4.0.2",
+    "underscore": "^1.9.1"
+  }
+}
